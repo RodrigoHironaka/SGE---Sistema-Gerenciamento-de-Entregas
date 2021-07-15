@@ -48,7 +48,7 @@ namespace SGE.Monitor
 
         private void AtualizaPreparacao_Load(object sender, EventArgs e)
         {
-            labelControl1.Text = "oi, ola";
+            labelControl1.Text = "oi";
         }
     }
 }
