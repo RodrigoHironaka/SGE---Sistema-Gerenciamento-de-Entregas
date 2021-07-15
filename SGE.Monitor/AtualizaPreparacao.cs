@@ -45,5 +45,10 @@ namespace SGE.Monitor
             //clicouSair = true;
             Application.Exit();
         }
+
+        private void AtualizaPreparacao_Load(object sender, EventArgs e)
+        {
+            labelControl1.Text = "oi";
+        }
     }
 }
