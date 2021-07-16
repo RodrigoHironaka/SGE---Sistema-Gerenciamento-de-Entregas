@@ -29,6 +29,7 @@ namespace SGE.App.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btExcluir = new DevExpress.XtraEditors.SimpleButton();
             this.btAlterar = new DevExpress.XtraEditors.SimpleButton();
             this.btNovo = new DevExpress.XtraEditors.SimpleButton();
@@ -47,6 +48,7 @@ namespace SGE.App.Formularios
             this.colCaixa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colValor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btCancelar = new DevExpress.XtraEditors.SimpleButton();
+            this.timerGrid = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwConsulta)).BeginInit();
             this.SuspendLayout();
@@ -257,6 +259,11 @@ namespace SGE.App.Formularios
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // timerGrid
+            // 
+            this.timerGrid.Interval = 1000;
+            this.timerGrid.Tick += new System.EventHandler(this.timerGrid_Tick);
+            // 
             // frmPreparacaoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,5 +305,6 @@ namespace SGE.App.Formularios
         private DevExpress.XtraGrid.Columns.GridColumn colLoja;
         private DevExpress.XtraGrid.Columns.GridColumn colCaixa;
         private DevExpress.XtraGrid.Columns.GridColumn colValor;
+        private System.Windows.Forms.Timer timerGrid;
     }
 }

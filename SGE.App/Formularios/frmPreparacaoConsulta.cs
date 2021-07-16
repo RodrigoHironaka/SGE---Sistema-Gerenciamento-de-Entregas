@@ -4,6 +4,7 @@ using SGE.App.Formularios.Utilidades;
 using SGE.Dominio.Entidades;
 using SGE.Dominio.ObjetoValor;
 using SGE.Repositorio.Configuracao;
+using SGE.Repositorio.Ferramentas;
 using SGE.Repositorio.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -83,9 +84,17 @@ namespace SGE.App.Formularios
         }
         #endregion
 
+        public void ConfiguraTimer()
+        {
+            var configuracoes = Ferramentas.LerXML();
+            timerGrid.Interval = Convert.ToInt32(configuracoes[8]) * 1000;
+            timerGrid.Enabled = true;
+        }
+       
         public frmPreparacaoConsulta()
         {
             InitializeComponent();
+            ConfiguraTimer();
         }
 
         private void CarregaDados()
@@ -225,6 +234,11 @@ namespace SGE.App.Formularios
             frmConsultaEntregasPorColaborador frm = new frmConsultaEntregasPorColaborador(Session);
             if (frm.ShowDialog() == DialogResult.OK)
                 gvwConsulta.RefreshData();
+        }
+
+        private void timerGrid_Tick(object sender, EventArgs e)
+        {
+            CarregaDados();
         }
     }
 }

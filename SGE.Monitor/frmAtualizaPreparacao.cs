@@ -13,6 +13,7 @@ namespace SGE.Monitor
 {
     public partial class frmAtualizaPreparacao : Form
     {
+ 
         NotifyIcon notifyIcon;
         public frmAtualizaPreparacao()
         {
@@ -28,8 +29,6 @@ namespace SGE.Monitor
                 }),
                 Visible = true
             };
-            
-            
         }
 
         void Exibir(object sender, EventArgs e)
