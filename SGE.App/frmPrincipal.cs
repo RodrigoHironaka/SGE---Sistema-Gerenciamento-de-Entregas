@@ -5,6 +5,7 @@ using SGE.App.Formularios.Login;
 using SGE.App.Formularios.Utilidades;
 using SGE.App.Relatorios;
 using SGE.Dominio.ObjetoValor;
+using SGE.Monitor;
 using SGE.Relatorios;
 using SGE.Repositorio.Configuracao;
 using SGE.Repositorio.Repositorios;
@@ -12,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -199,7 +201,11 @@ namespace SGE.App
             BloqueiaCamposFormPrincipal();
             frmLogin frm = new frmLogin();
             if (frm.ShowDialog() == DialogResult.OK)
+            {
                 LiberaCamposFormPrincipal();
+                System.Diagnostics.Process.Start("SGE.Monitor.exe");
+            }
+                
             else
                 Application.Exit();
             BloqueiaCamposPeloTipoUsuario();

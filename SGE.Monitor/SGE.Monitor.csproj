@@ -54,16 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AtualizaPreparacao.cs">
+    <Compile Include="frmAtualizaPreparacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AtualizaPreparacao.Designer.cs">
-      <DependentUpon>AtualizaPreparacao.cs</DependentUpon>
+    <Compile Include="frmAtualizaPreparacao.Designer.cs">
+      <DependentUpon>frmAtualizaPreparacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AtualizaPreparacao.resx">
-      <DependentUpon>AtualizaPreparacao.cs</DependentUpon>
+    <EmbeddedResource Include="frmAtualizaPreparacao.resx">
+      <DependentUpon>frmAtualizaPreparacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,7 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\icone3-sem-fundo-32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icone3 sem fundo 32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

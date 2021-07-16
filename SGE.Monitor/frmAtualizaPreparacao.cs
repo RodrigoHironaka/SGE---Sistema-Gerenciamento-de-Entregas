@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGE.Monitor.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +11,15 @@ using System.Windows.Forms;
 
 namespace SGE.Monitor
 {
-    public partial class AtualizaPreparacao : Form
+    public partial class frmAtualizaPreparacao : Form
     {
         NotifyIcon notifyIcon;
-        public AtualizaPreparacao()
+        public frmAtualizaPreparacao()
         {
             InitializeComponent();
             notifyIcon = new NotifyIcon()
             {
-                //Icon = Properties.Resources.;
+                Icon = Resources.icone3_sem_fundo_32x321,
                 Text = "SGE - Monitor",
                 ContextMenu = new ContextMenu(new MenuItem[]
                 {
@@ -48,7 +49,14 @@ namespace SGE.Monitor
 
         private void AtualizaPreparacao_Load(object sender, EventArgs e)
         {
-            labelControl1.Text = "oi";
+            //labelControl1.Text = "oi";
+        }
+
+        private void frmAtualizaPreparacao_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+            notifyIcon.Visible = true;
         }
     }
 }

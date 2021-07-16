@@ -69,5 +69,15 @@ namespace SGE.Monitor.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
+        /// </summary>
+        internal static System.Drawing.Icon icone3_sem_fundo_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("icone3_sem_fundo_32x321", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

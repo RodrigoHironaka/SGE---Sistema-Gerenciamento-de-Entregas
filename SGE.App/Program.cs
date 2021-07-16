@@ -1,5 +1,6 @@
 ﻿using SGE.App.Formularios.Login;
 using SGE.App.Formularios.Utilidades;
+using SGE.Monitor;
 using SGE.Repositorio.Configuracao;
 using SGE.Repositorio.Ferramentas;
 using System;
@@ -28,6 +29,7 @@ namespace SGE.App
                 {
                     var session = NHibernateHelper.GetSession(true);
                     Application.Run(new frmPrincipal());
+                    
                 }
                 else
                 {
@@ -35,6 +37,7 @@ namespace SGE.App
                     f.WindowState = FormWindowState.Normal;
                     f.ShowDialog();
                     Application.Run(new frmPrincipal());
+                    
                 }
             }
             catch (Exception)

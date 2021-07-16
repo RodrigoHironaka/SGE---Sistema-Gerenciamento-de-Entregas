@@ -442,6 +442,10 @@
       <Project>{a1841e58-9397-46b7-a59c-578bd2e336c1}</Project>
       <Name>SGE.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SGE.Monitor\SGE.Monitor.csproj">
+      <Project>{EDA454F3-2DC4-4264-8E97-D6AD1B815F08}</Project>
+      <Name>SGE.Monitor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SGE.Relatorios\SGE.Relatorios.csproj">
       <Project>{093F6B52-5E72-4AC4-AC14-11FD9C9569E1}</Project>
       <Name>SGE.Relatorios</Name>

@@ -1,7 +1,7 @@
 ﻿
 namespace SGE.Monitor
 {
-    partial class AtualizaPreparacao
+    partial class frmAtualizaPreparacao
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -40,15 +40,17 @@ namespace SGE.Monitor
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "labelControl1";
             // 
-            // AtualizaPreparacao
+            // frmAtualizaPreparacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 161);
+            this.ClientSize = new System.Drawing.Size(297, 161);
             this.Controls.Add(this.labelControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AtualizaPreparacao";
+            this.Name = "frmAtualizaPreparacao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAtualizaPreparacao_FormClosing);
             this.Load += new System.EventHandler(this.AtualizaPreparacao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
