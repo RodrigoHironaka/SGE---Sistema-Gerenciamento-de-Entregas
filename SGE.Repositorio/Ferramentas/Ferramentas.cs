@@ -2,12 +2,17 @@
 using MySql.Data.MySqlClient;
 using NHibernate;
 using NHibernate.Cfg;
+using SGE.Dominio.Entidades;
+using SGE.Dominio.ObjetoValor;
+using SGE.Repositorio.Configuracao;
+using SGE.Repositorio.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -15,6 +20,41 @@ namespace SGE.Repositorio.Ferramentas
 {
     public class Ferramentas
     {
+        #region
+        private static ISession session;
+
+        protected static ISession Session
+        {
+            get
+            {
+                if (session == null || !session.IsOpen)
+                {
+                    if (session != null)
+                        session.Dispose();
+                    session = NHibernateHelper.GetSession();
+                }
+                return session;
+            }
+        }
+        #endregion
+
+        #region repositorio
+        private RepositorioPreparacao _repositorio;
+        public RepositorioPreparacao Repositorio
+        {
+            get
+            {
+                if (_repositorio == null)
+                    _repositorio = new RepositorioPreparacao(Session);
+
+                return _repositorio;
+            }
+            set { _repositorio = value; }
+        }
+
+        #endregion
+
+       
         public static List<String> LerXML()
         {
             try
@@ -66,8 +106,6 @@ namespace SGE.Repositorio.Ferramentas
             conexao.Open();
             conexao.Close();
         } // usando mysqlconnection
-        
-  
 
     }
 }

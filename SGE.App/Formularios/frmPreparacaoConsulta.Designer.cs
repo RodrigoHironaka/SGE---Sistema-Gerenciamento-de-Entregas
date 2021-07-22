@@ -148,7 +148,7 @@ namespace SGE.App.Formularios
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.Visible = true;
             this.colCodigo.VisibleIndex = 1;
-            this.colCodigo.Width = 65;
+            this.colCodigo.Width = 63;
             // 
             // colCliente
             // 
@@ -157,7 +157,7 @@ namespace SGE.App.Formularios
             this.colCliente.Name = "colCliente";
             this.colCliente.Visible = true;
             this.colCliente.VisibleIndex = 2;
-            this.colCliente.Width = 186;
+            this.colCliente.Width = 182;
             // 
             // colSituacao
             // 
@@ -171,7 +171,7 @@ namespace SGE.App.Formularios
             this.colSituacao.Name = "colSituacao";
             this.colSituacao.Visible = true;
             this.colSituacao.VisibleIndex = 0;
-            this.colSituacao.Width = 59;
+            this.colSituacao.Width = 68;
             // 
             // colDataAlteracao
             // 
@@ -196,7 +196,7 @@ namespace SGE.App.Formularios
             this.colAcougue.Name = "colAcougue";
             this.colAcougue.Visible = true;
             this.colAcougue.VisibleIndex = 4;
-            this.colAcougue.Width = 66;
+            this.colAcougue.Width = 64;
             // 
             // colPadaria
             // 
@@ -209,7 +209,7 @@ namespace SGE.App.Formularios
             this.colPadaria.Name = "colPadaria";
             this.colPadaria.Visible = true;
             this.colPadaria.VisibleIndex = 5;
-            this.colPadaria.Width = 58;
+            this.colPadaria.Width = 56;
             // 
             // colLoja
             // 
@@ -222,7 +222,7 @@ namespace SGE.App.Formularios
             this.colLoja.Name = "colLoja";
             this.colLoja.Visible = true;
             this.colLoja.VisibleIndex = 6;
-            this.colLoja.Width = 58;
+            this.colLoja.Width = 56;
             // 
             // colCaixa
             // 
@@ -235,6 +235,7 @@ namespace SGE.App.Formularios
             this.colCaixa.Name = "colCaixa";
             this.colCaixa.Visible = true;
             this.colCaixa.VisibleIndex = 7;
+            this.colCaixa.Width = 81;
             // 
             // colValor
             // 
@@ -247,7 +248,7 @@ namespace SGE.App.Formularios
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "SUM={0:N2}")});
             this.colValor.Visible = true;
             this.colValor.VisibleIndex = 3;
-            this.colValor.Width = 118;
+            this.colValor.Width = 115;
             // 
             // btCancelar
             // 
@@ -278,7 +279,7 @@ namespace SGE.App.Formularios
             this.Controls.Add(this.btNovo);
             this.Name = "frmPreparacaoConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPreparacaoConsulta";
+            this.Text = "Preparação - (0)";
             this.Load += new System.EventHandler(this.frmPreparacaoConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdConsulta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvwConsulta)).EndInit();

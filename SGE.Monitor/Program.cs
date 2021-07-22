@@ -17,7 +17,7 @@ namespace SGE.Monitor
         {
             Process Monitor = Process.GetCurrentProcess();
             string aProcName = Monitor.ProcessName;
-            if (Process.GetProcessesByName(aProcName).Length < 1)
+            if (Process.GetProcessesByName(aProcName).Length > 1)
             {
                 return;
             }
@@ -27,9 +27,6 @@ namespace SGE.Monitor
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new ExecutaMonitor());
             }
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmAtualizaPreparacao());
         }
     }
 

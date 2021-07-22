@@ -11,7 +11,8 @@ namespace SGE.Dominio.ObjetoValor
         Entregue,
         Cancelado,
         Agendado,
-        Devolucao
+        Devolucao,
+        Excedido
 
     }
 }

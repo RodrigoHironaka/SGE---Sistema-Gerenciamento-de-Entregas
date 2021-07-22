@@ -84,23 +84,31 @@ namespace SGE.App.Formularios
         }
         #endregion
 
+        private int duracao;
+
+        private readonly int duracaoOriginal = Convert.ToInt32(Ferramentas.LerXML()[8]);
+        
         public void ConfiguraTimer()
         {
-            var configuracoes = Ferramentas.LerXML();
-            timerGrid.Interval = Convert.ToInt32(configuracoes[8]) * 1000;
+            duracao = duracaoOriginal;
+            timerGrid.Interval = 1000;
             timerGrid.Enabled = true;
+            timerGrid.Start();
         }
-       
+
         public frmPreparacaoConsulta()
         {
             InitializeComponent();
             ConfiguraTimer();
+            
+
         }
 
         private void CarregaDados()
         {
-            grdConsulta.DataSource = Repositorio.ObterTodos().ToList();
-
+            Session.Clear();
+            grdConsulta.DataSource = Repositorio.ObterTodos().OrderByDescending(x => x.Id).ToList();
+            gvwConsulta.RefreshData();
         }
 
         public void VerificaSetorAberto()
@@ -128,7 +136,7 @@ namespace SGE.App.Formularios
                         || prep.SituacaoPreparacao == SituacaoPreparacao.Devolucao
                         || prep.SituacaoPreparacao == SituacaoPreparacao.Saiu)
                     {
-                        XtraMessageBox.Show("Situação da preparação nº "+ item.Id +" esta '" + prep.SituacaoPreparacao.ToString() +
+                        XtraMessageBox.Show("Situação da preparação nº " + item.Id + " esta '" + prep.SituacaoPreparacao.ToString() +
                             "'.\nVocê não pode realizar esta operação!\n", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
@@ -199,6 +207,7 @@ namespace SGE.App.Formularios
         private void frmPreparacaoConsulta_Load(object sender, EventArgs e)
         {
             CarregaDados();
+            gvwConsulta.SetRowCellValue(DevExpress.XtraGrid.GridControl.AutoFilterRowHandle, colSituacao, "Pendente");
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -238,7 +247,12 @@ namespace SGE.App.Formularios
 
         private void timerGrid_Tick(object sender, EventArgs e)
         {
-            CarregaDados();
+            this.Text = "Preparação - (" + duracao--.ToString() + ")";
+            if (duracao < 0)
+            {
+                CarregaDados();
+                duracao = duracaoOriginal;
+            }
         }
     }
 }
