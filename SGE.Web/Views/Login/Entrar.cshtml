@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Entrar</title>
+    <link href="~/Content/Sign.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div id="login">
+            <h2>Login</h2>
+            @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="item">
+                    @Html.TextBox("txtUser","", new { @class = "form-control", @placeholder = "Usuário" })
+
+                </div>
+                <div class="item">
+                    @Html.Password("txtSenha","", new { @class = "form-control", @placeholder = "Senha" })
+                </div>
+
+                <div class="item">
+                    <button type="submit">Entrar</button>
+                </div>
+
+                <div class="item">
+                    @TempData["Mensagem"]
+                </div>
+            }
+
+        </div>
+    </div>
+</body>
+</html>

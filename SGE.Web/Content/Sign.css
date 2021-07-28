@@ -1,0 +1,31 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body {
+    font-family: Arial;
+}
+.container{
+    width: 1200px;
+    display: flex;
+    padding: 60px 100px;
+    justify-content: center;
+}
+#login h2{
+    font-size: 2rem; /*ver depois rem*/
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+#login .form-control {
+    padding: 0.3rem;
+    margin-bottom: 15px;
+}
+
+#login button{
+    padding: 0.3rem 1rem;
+    text-transform: uppercase;
+    width: 100%;
+}

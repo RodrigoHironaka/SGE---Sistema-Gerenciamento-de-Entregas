@@ -15,7 +15,7 @@ namespace SGE.Repositorio.Configuracao
 
         public static ISession GetSession(bool revalidar = false)
         {
-            var configuracoes = Ferramentas.Ferramentas.LerXML();
+            //var configuracoes = Ferramentas.Ferramentas.LerXML();
             if (_sessionFactory == null || revalidar )
             {
             
@@ -24,8 +24,8 @@ namespace SGE.Repositorio.Configuracao
                     {
                         db.Dialect<NHibernate.Dialect.MySQL55InnoDBDialect>();
                         db.Driver<NHibernate.Driver.MySqlDataDriver>();
-                        db.ConnectionString = "Server=" + configuracoes[0] + ";Port=" + configuracoes[1] + ";Database=" + configuracoes[2] + ";Uid=" + configuracoes[3] + ";Pwd=" + configuracoes[4] + ";";
-                        //db.ConnectionString = "Server=localhost;Port=3306;Database=sge;Uid=root;Pwd=hiro;";
+                        //db.ConnectionString = "Server=" + configuracoes[0] + ";Port=" + configuracoes[1] + ";Database=" + configuracoes[2] + ";Uid=" + configuracoes[3] + ";Pwd=" + configuracoes[4] + ";";
+                        db.ConnectionString = "Server=localhost;Port=3306;Database=sge;Uid=root;Pwd=hiro;";
                         db.Timeout = 10;
 
                         db.LogFormattedSql = false;
