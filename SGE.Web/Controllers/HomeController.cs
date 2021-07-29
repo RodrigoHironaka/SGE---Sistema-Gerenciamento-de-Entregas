@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGE.Repositorio.Configuracao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +11,12 @@ namespace SGE.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
             
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Entrar", "Login");
+            else
+                return View();
+
         }
 
 

@@ -48,6 +48,7 @@
     <Compile Include="Entidades\Devolucao.cs" />
     <Compile Include="Entidades\Entrega.cs" />
     <Compile Include="Entidades\FormaPagamento.cs" />
+    <Compile Include="Entidades\Menu.cs" />
     <Compile Include="Entidades\Motivo.cs" />
     <Compile Include="Entidades\Pessoa.cs" />
     <Compile Include="Entidades\Preparacao.cs" />

@@ -1,0 +1,30 @@
+﻿@model IList<SGE.Dominio.Entidades.Menu>
+
+<ul class="navbar-nav mr-auto">
+   
+    @foreach (var item in Model.Where(x => x.MenuPai == null))
+    {
+        if (item.Items.Count == 0)
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="@item.Link">@item.Nome</a>
+            </li>
+        }
+        else if (item.Items.Count > 0)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @item.Nome
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var item2 in Model.Where(x => x.MenuPai.Id == item.Id))
+                    {
+                        <a class="dropdown-item" href="@item2.Link">@item2.Nome</a>
+                    }
+
+                </div>
+            </li>
+        }
+
+    }
+</ul>

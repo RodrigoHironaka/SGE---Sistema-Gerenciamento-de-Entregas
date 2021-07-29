@@ -26,5 +26,25 @@ namespace SGE.Web.Utilitarios
                 HttpContext.Current.Session["Usuario"] = value;
             }
         }
+
+        public static IList<Menu> Menus
+        {
+            get
+            {
+                if (HttpContext.Current.Session["Menus"] == null)
+                {
+                    var ids = Usuario.Acessos.Select(x => x.Id);
+                    var menus = new RepositorioMenu(NHibernateHttpModule.CurrentSession).ObterPorParametros(x => ids.Contains(x.Id)).ToList();
+                    Menus = menus;
+
+                }
+                
+                return HttpContext.Current.Session["Menus"] as IList<Menu>;
+            }
+            set
+            {
+                HttpContext.Current.Session["Menus"] = value;
+            }
+        }
     }
 }

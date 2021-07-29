@@ -28,6 +28,13 @@ namespace SGE.Repositorio.Mapeamentos
             Property(x => x.TipoUsuario, m => m.Type<EnumType<TipoUsuario>>());
             Property(x => x.DataAlteracao);
             Property(x => x.DataGeracao);
+
+            Bag(x => x.Acessos, m =>
+            {
+                m.Table("usuarioacessos");
+                m.Key(k => k.Column("Usuario"));
+
+            }, map => map.ManyToMany(a => { a.Class(typeof(Menu)); a.Column("Menu"); }));
         }
     }
 }

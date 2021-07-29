@@ -1,0 +1,34 @@
+﻿@model IList<SGE.Dominio.Entidades.Setor>
+
+@{
+    ViewBag.Title = "Setores";
+}
+
+<div class="col-12">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Situação</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(x => item.Nome)
+                        
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Situacao)
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink("Editar", "Setor", new { @class= "btn btn-primary"})
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

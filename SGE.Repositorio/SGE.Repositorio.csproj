@@ -74,6 +74,7 @@
     <Compile Include="Mapeamentos\DevolucaoMAP.cs" />
     <Compile Include="Mapeamentos\EntregaMAP.cs" />
     <Compile Include="Mapeamentos\FormaPagamentoMAP.cs" />
+    <Compile Include="Mapeamentos\MenuMAP.cs" />
     <Compile Include="Mapeamentos\MotivoMAP.cs" />
     <Compile Include="Mapeamentos\PreparacaoMAP.cs" />
     <Compile Include="Mapeamentos\PreparacaoSetoresMAP.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Repositorios\RepositorioDevolucao.cs" />
     <Compile Include="Repositorios\RepositorioEntrega.cs" />
     <Compile Include="Repositorios\RepositorioFormaPagamento.cs" />
+    <Compile Include="Repositorios\RepositorioMenu.cs" />
     <Compile Include="Repositorios\RepositorioMotivo.cs" />
     <Compile Include="Repositorios\RepositorioPreparacao.cs" />
     <Compile Include="Repositorios\RepositorioPreparacaoSetores.cs" />

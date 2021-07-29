@@ -23,5 +23,7 @@ namespace SGE.Dominio.Entidades
         public virtual TipoUsuario TipoUsuario { get; set; }
         public virtual DateTime? DataGeracao { get; set; }
         public virtual DateTime? DataAlteracao { get; set; }
+
+        public virtual IList<Menu> Acessos { get; set; }
     }
 }
