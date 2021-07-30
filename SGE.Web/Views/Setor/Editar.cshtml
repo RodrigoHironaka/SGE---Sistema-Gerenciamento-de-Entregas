@@ -1,0 +1,35 @@
+﻿@model SGE.Dominio.Entidades.Setor
+
+@{
+    ViewBag.Title = Model.Id > 0 ? "Editar Setor" : "Novo Setor";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        @using (Html.BeginForm("Editar", "Setor", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.HiddenFor(x =>x.Id)
+            <div class="form-group">
+                @Html.LabelFor(x => x.Nome, htmlAttributes: new { @class="control-form"})
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x => x.Nome, new { @class="form-control"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Situacao, htmlAttributes: new { @class="control-form"})
+                <div class="col-md-12">
+                    @Html.EnumDropDownListFor(x => x.Situacao, htmlAttributes: new { @class=" control-form"})
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+

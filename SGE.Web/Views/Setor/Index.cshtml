@@ -25,7 +25,7 @@
                         @Html.DisplayFor(x => item.Situacao)
                     </td>
                     <td class="text-center">
-                        @Html.ActionLink("Editar", "Setor", new { @class= "btn btn-primary"})
+                        @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class= "btn corBotao"})
                     </td>
                 </tr>
             }
