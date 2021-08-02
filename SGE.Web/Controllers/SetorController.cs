@@ -41,9 +41,42 @@ namespace SGE.Web.Controllers
             if(id > 0)
             {
                 setor = Repositorio.ObterPorId(id);
-
             }
             return View(setor);
         }
+
+        [HttpPost]
+        public ActionResult Editar(Setor setorVM)
+        {
+            if (String.IsNullOrEmpty(setorVM.Nome))
+                ModelState.AddModelError("Nome", "Nome obrigatorio!");
+            if (ModelState.IsValid)
+            {
+                if (setorVM.Id > 0)
+                {
+                    setor = Repositorio.ObterPorId(setorVM.Id);
+                }
+                setor.Nome = setorVM.Nome;
+                setor.Situacao = setorVM.Situacao;
+                if (setorVM.Id == 0)
+                    Repositorio.Salvar(setor);
+                else
+                    Repositorio.Alterar(setor);
+                return RedirectToAction("Index");
+            }
+            
+            return View(setor);
+        }
+
+        public ActionResult Excluir(Int64 id)
+        {
+            if(id > 0)
+            {
+                setor = Repositorio.ObterPorId(id);
+                Repositorio.Excluir(setor);
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

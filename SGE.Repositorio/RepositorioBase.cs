@@ -1,10 +1,7 @@
 ﻿using LinqKit;
 using NHibernate;
-using NHibernate.Criterion;
 using SGE.Dominio.Interface;
-using SGE.Dominio.ObjetoValor;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 

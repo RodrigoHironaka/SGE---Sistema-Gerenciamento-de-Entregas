@@ -1,0 +1,91 @@
+﻿@model SGE.Web.ViewModels.FiltroPreparacaoVM
+
+@{
+    ViewBag.Title = "Preparações";
+}
+
+<div class="row mb-3 mt-3">
+    <div class="col-6">
+        <h2>Consulta Preparações</h2>
+    </div>
+    <div class="col-6 text-right">
+        @Html.ActionLink("Novo", "Editar", new { id = 0 }, new { @class = "btn corBotao" })
+    </div>
+</div>
+
+@using (Html.BeginForm("Index", "Preparacao", FormMethod.Get, new { @class = "form-horizontal mb-3" }))
+{
+    <div class="row">
+        <div class="col-md-3">
+            @Html.LabelFor(x => x.DataInicial, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(x => x.DataInicial, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(x => x.DataFinal, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(x => x.DataFinal, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(x => x.Situacao, htmlAttributes: new { @class = "control-label" })
+            @Html.EnumDropDownListFor(x => x.Situacao, new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(x => x.Pesquisar, htmlAttributes: new { @class = "control-label" })
+            @Html.TextBoxFor(x => x.Pesquisar, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <button type="submit" class="btn corBotao"> Pesquisa Avançada</button>
+        </div>
+
+    </div>
+}
+
+
+<div class="col-12">
+    <table id="Tabela" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Situacao</th>
+                <th>Compra</th>
+                <th>Cliente</th>
+                <th>Valor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Preparacoes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(x => item.SituacaoPreparacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Cliente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Total)
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn corBotao" })
+                        <a class="btn btn-warning" href="@Url.Action("Excluir", "Preparacao", new { id = item.Id})" onclick="return confirm('Deseja realmente excluir?')">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(function () {
+        $("#Tabela").DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+            }
+        });
+    });
+</script>

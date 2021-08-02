@@ -4,8 +4,18 @@
     ViewBag.Title = "Setores";
 }
 
+<div class="row mb-3 mt-3">
+    <div class="col-6">
+        <h2> Consulta Setores</h2>
+    </div>
+    <div class="col-6 text-right">
+        @Html.ActionLink("Novo", "Editar", new { id = 0 }, new { @class = "btn corBotao" })
+    </div>
+</div>
+
+
 <div class="col-12">
-    <table class="table table-bordered table-hover">
+    <table id="Tabela" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -25,10 +35,23 @@
                         @Html.DisplayFor(x => item.Situacao)
                     </td>
                     <td class="text-center">
-                        @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class= "btn corBotao"})
+                        @Html.ActionLink("Editar", "Editar", new { id = item.Id }, new { @class = "btn corBotao" })
+                        <a class="btn corBotao" href="@Url.Action("Excluir", "Setor", new { id = item.Id})" onclick="return confirm('Deseja realmente excluir?')"> Excluir</a>
+                       
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#Tabela").DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+            },
+            "pageLength": 50
+        });
+    });
+</script>

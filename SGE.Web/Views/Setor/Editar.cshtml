@@ -16,15 +16,22 @@
         {
             @Html.HiddenFor(x =>x.Id)
             <div class="form-group">
-                @Html.LabelFor(x => x.Nome, htmlAttributes: new { @class="control-form"})
+                @Html.LabelFor(x => x.Nome, htmlAttributes: new { @class="control-label"})
                 <div class="col-md-12">
                     @Html.TextBoxFor(x => x.Nome, new { @class="form-control"})
+                    @Html.ValidationMessageFor(x=>x.Nome)
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(x => x.Situacao, htmlAttributes: new { @class="control-form"})
+                @Html.LabelFor(x => x.Situacao, htmlAttributes: new { @class="control-label"})
                 <div class="col-md-12">
-                    @Html.EnumDropDownListFor(x => x.Situacao, htmlAttributes: new { @class=" control-form"})
+                    @Html.EnumDropDownListFor(x => x.Situacao, new { @class=" form-control"})
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button class="btn corBotao " type="submit">Salvar</button>
+                    <a class="btn corBotao" href="@Url.Action("Index")">Voltar</a>
                 </div>
             </div>
         }
